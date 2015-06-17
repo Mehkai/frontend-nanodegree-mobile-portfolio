@@ -1,3 +1,32 @@
+Below are full details of Website Performance Optimization
+
+To get started:
+1. Check out the repository
+2. Open index.html from Download
+3. Use Chrome performance tools (timeline, console)
+
+What I did:
+1. I analyzed the original project files taking a view at how the website was structured.
+2. I then ran some timeline performance tests in Chrome Dev tools. And looked at the spikes above 60fps as well as the flame view
+3. Once I knew the items that were part of the spikes I began to review these items, prioritizing what was important about their function.
+4. I then ran the site through PageSpeed. And reviewed their reccommendations comparing them with what I had already taken note of.
+5. I slowly methodically made small changes and then ran the tests again to verify if there were changes.
+  List of changes include:
+    -Resizing images so that the browser did not have to
+    -Minify CSS and JS files (Main.js was left as is to make comments easier to read)
+    -Lossless image compression was used (Courtsey of Shrink 'O Matic)
+    -Added inline CSS and JS to reduce CSS and JS files for small style and scripting needs
+    -Added media definitions to remove render blocking
+
+6. Comments have been added to the HTML files where I made changes
+7. For the JavaScript bottleneck changes I used Dev tools one again to identify the spikes.
+8. I then reviewed the spikes and thought of potential alternatives to the structuring of the program.
+9. Two main changes were made to remove Jank.
+10. First change was made to the background scrolling animation. This change was to set a standard sized pizza image so that the browser was not sizing the image. Second piece was to remove unneccesary pizza images. The pizzas that were off screen. (This was set at 20 images but could easily be set to be based off screen width)
+11. Second Change was made to the scroll bar used to select pizza size. This change was to remove the function that was updating the inline style for each pizza Div. And instead let CSS handle resizing the images by adding a class based on the slide bar selection.
+12. all changes are commented on.
+
+
 ## Website Performance Optimization portfolio project
 
 Your challenge, if you wish to accept it (and we sure hope you will), is to optimize this online portfolio for speed! In particular, optimize the critical rendering path and make this page render as quickly as possible by applying the techniques you've picked up in the [Critical Rendering Path course](https://www.udacity.com/course/ud884).
@@ -32,7 +61,7 @@ Profile, optimize, measure... and then lather, rinse, and repeat. Good luck!
 
 ####Part 2: Optimize Frames per Second in pizza.html
 
-To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js. 
+To optimize views/pizza.html, you will need to modify views/js/main.js until your frames per second rate is 60 fps or higher. You will find instructive comments in main.js.
 
 You might find the FPS Counter/HUD Display useful in Chrome developer tools described here: [Chrome Dev Tools tips-and-tricks](https://developer.chrome.com/devtools/docs/tips-and-tricks).
 

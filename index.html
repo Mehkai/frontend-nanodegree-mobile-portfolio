@@ -7,8 +7,8 @@
     <meta name="author" content="Carl Vereen">
     <title>Carl Vereen: Portfolio</title>
 
-    <!-- Hmm, what is the impact of web fonts on speed? Measure it... -->
-    <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> -->
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 
     <link href="css/min_style.css" rel="stylesheet">
     <style media="print">
@@ -57,12 +57,12 @@
           </li>
         </ul>
     </div>
-
-    <script>
+    <!-- moved JS that was not needed for CRP to end of HTML file for faster loading -->
+    <script> // made small JS inline to reduce file calls in CRP
       (function(w,g){w['GoogleAnalyticsObject']=g;
       w[g]=w[g]||function(){(w[g].q=w[g].q||[]).push(arguments)};w[g].l=1*new Date();})(window,'ga');
 
-      // TODO: replace with your Google Analytics profile ID.
+
       ga('create', 'UA-64103212-1');
       ga('send', 'pageview');
     </script>
