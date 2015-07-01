@@ -21,10 +21,11 @@ What I did:
 6. Comments have been added to the HTML files where I made changes
 7. For the JavaScript bottleneck changes I used Dev tools one again to identify the spikes.
 8. I then reviewed the spikes and thought of potential alternatives to the structuring of the program.
-9. Two main changes were made to remove Jank.
-10. First change was made to the background scrolling animation. This change was to set a standard sized pizza image so that the browser was not sizing the image. Second piece was to remove unneccesary pizza images. The pizzas that were off screen. (This was set at 20 images but could easily be set to be based off screen width)
-11. Second Change was made to the scroll bar used to select pizza size. This change was to remove the function that was updating the inline style for each pizza Div. And instead let CSS handle resizing the images by adding a class based on the slide bar selection.
-12. all changes are commented on.
+9. Three main changes were made to remove Jank.
+10. First I changed all querySelectors to focus on the element's ID or class for efficiency.
+11. Second change was made to the background scrolling animation. This change was to set a standard sized pizza image so that the browser was not sizing the image. Second piece was to remove unneccesary pizza images. The pizzas that were off screen. (This was set at 20 for testing and was then set to be based off screen dimensions)
+12. Third Change was made to the scroll bar used to select pizza size. This change was to remove the function that was updating the inline style for each pizza Div. And instead let CSS handle resizing the images by adding a class based on the slide bar selection.
+13. all changes are commented on.
 
 
 ## Website Performance Optimization portfolio project
