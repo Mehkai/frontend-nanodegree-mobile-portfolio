@@ -513,8 +513,9 @@ function updatePositions() {
 
   var items = document.getElementsByClassName('mover');
   var itemsLength = items.length;
+  var bodyScrollTop = document.body.scrollTop; // moved out of for loop to reduce DOM touches
   for (var i = 0; i < itemsLength; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
+    var phase = Math.sin(( bodyScrollTop/ 1250) + (i % 5));
     items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
   }
 
@@ -532,10 +533,21 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+function screenDimension () {
+  var cols = 8;
+  var windowHeight = window.innerHeight;
+  var s =  windowHeight / cols;
+  return s;
+}
 document.addEventListener('DOMContentLoaded', function() {
+  screenDimension();
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+   // moving DOM touch outside the for loop
+  var movingPizza = document.getElementById("movingPizzas1");
+  var pizzaHTMLFragment = document.createDocumentFragment(); // batch loading DOM changes
+  var screenDimesionP = screenDimension();
+  for (var i = 0; i < screenDimesionP; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
@@ -543,7 +555,8 @@ document.addEventListener('DOMContentLoaded', function() {
     elem.style.width = "73.333px";
     elem.basicLeft = (i % cols) * s;
     elem.style.top = (Math.floor(i / cols) * s) + 'px';
-    document.getElementById("movingPizzas1").appendChild(elem);
+    pizzaHTMLFragment.appendChild(elem);
   }
+  movingPizza.appendChild(pizzaHTMLFragment);
   updatePositions();
 });
