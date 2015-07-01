@@ -398,7 +398,7 @@ var pizzaElementGenerator = function(i) {
   return pizzaContainer;
 };
 
-var newsize; // add variable for pizza size changes from slider
+
 // resizePizzas(size) is called when the slider in the "Our Pizzas" section of the website moves.
 var resizePizzas = function(size) {
   window.performance.mark("mark_start_resize");   // User Timing API function
@@ -408,13 +408,13 @@ var resizePizzas = function(size) {
     switch(size) {
       case "1":
         document.getElementById("pizzaSize").innerHTML = "Small";
-        return //newsize = 0.25;
+        return;
       case "2":
         document.getElementById("pizzaSize").innerHTML = "Medium";
-        return //newsize = 0.33;
+        return;
       case "3":
         document.getElementById("pizzaSize").innerHTML = "Large";
-        return //newsize = 0.50;
+        return;
       default:
         console.log("bug in changeSliderLabel");
     }
@@ -459,7 +459,7 @@ var resizePizzas = function(size) {
     var dx = determineDx(document.getElementById("pizza0"), size);
     var newwidth = (document.getElementById("pizza0").offsetWidth + dx) + 'px';
     var pizzaElementContainer =   document.getElementsByClassName("randomPizzaContainer");
-    var pizzaElementContainerLength = pizzaElementContainer.length
+    var pizzaElementContainerLength = pizzaElementContainer.length;
 
     for (var i = 0; i < pizzaElementContainerLength ; i++) {
       pizzaElementContainer[i].style.width = newwidth;
@@ -537,7 +537,7 @@ window.addEventListener('scroll', updatePositions);
 
 document.addEventListener('DOMContentLoaded', function() {
   var s = 256;
-  var rows = screen.height / 100
+  var rows = screen.height / 100;
   var cols = screen.width / s;
 
   console.log(s);
