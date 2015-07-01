@@ -533,14 +533,16 @@ function updatePositions() {
 window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
+//Calculate screen Dimension and calculate quantity of pizzas to create
 function screenDimension () {
   var cols = 8;
-  var windowHeight = window.innerHeight;
-  var s =  windowHeight / cols;
-  return s;
+  var rows = window.innerHeight;
+  var q = rows / cols ;
+  console.log(q);
+  return q;
 }
 document.addEventListener('DOMContentLoaded', function() {
-  screenDimension();
+
   var cols = 8;
   var s = 256;
    // moving DOM touch outside the for loop
