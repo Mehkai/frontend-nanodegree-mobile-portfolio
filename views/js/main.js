@@ -534,22 +534,20 @@ window.addEventListener('scroll', updatePositions);
 
 // Generates the sliding pizzas when the page loads.
 //Calculate screen Dimension and calculate quantity of pizzas to create
-function screenDimension () {
-  var cols = window.innerWidth / 73;
-  var rows = window.innerHeight / 100;
-  var q = rows * cols ;
-  return q;
-}
+
 document.addEventListener('DOMContentLoaded', function() {
-  var cols = window.innerWidth / 73;
-  var s = window.innerHeight / 1.5;
+  var s = 256;
+  var rows = screen.height / 100
+  var cols = screen.width / s;
+
   console.log(s);
    // moving DOM touch outside the for loop
   var movingPizza = document.getElementById("movingPizzas1");
   var pizzaHTMLFragment = document.createDocumentFragment(); // batch loading DOM changes
-  var screenDimesionP = screenDimension();
-  for (var i = 0; i < screenDimesionP; i++) {
-    var elem = document.createElement('img');
+  var screenDimesion = Math.ceil(rows * cols);
+  var elem;
+  for (var i = 0; i < screenDimesion; i++) {
+    elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
     elem.style.height = "100px";
